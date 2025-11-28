@@ -1,11 +1,27 @@
 #Euclidean Algorithm to calculate GCD(greatest common divisor)
 
+#declare two variables to store values from user
+number_1=int()
+number_2=int()
 
-#declare first number
-number_1=24
+#create one flag variable to check if inputs are valid
+flag=False
 
-#declare the second number
-number_2=12
+#create while loop to ask for user input until they enter valid numbers
+while (not flag):
+    
+    #take inputs from the user
+    number_1=int(input("Enter the first number (non-negative): "))
+    number_2=int(input("Enter the second number (non-negative): "))
+    
+    
+    #store the result to flag, whether they are valid or not
+    #standard euclidean algorithm cannot find the GCD of negative number and two zeros
+    flag = (number_1>=0 and number_2>=0) and (number_1!=0 and number_2!=0)
+    
+    #print out the error message if inputs are invalid
+    if (not flag):
+        print("You entered invalid inputs, do not use negative numbers or two zeros!")
 
 
 #create a function to calculate GCD of two numbers using euclidean algorithm to make sure our code is reusable
@@ -35,9 +51,9 @@ new_number_1, new_number_2 = euclidean_algorithm(number_1, number_2)
 
 #check which number is zero and print out the non-zero one
 if new_number_1==0:
-    print(new_number_2)
+    print(f"GCD of {number_1} and {number_2}: {new_number_2}")
 else:
-    print(new_number_1)
+    print(f"GCD of {number_1} and {number_2}: {new_number_1}")
     
 
 
